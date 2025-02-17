@@ -9,18 +9,19 @@ members = ["."]
 [workspace.dependencies]
 
 [dependencies]
-mimalloc = { version = "0.1.43", default-features = false }
+# Option
+# mimalloc = { version = "0.1.43", default-features = false }
 
 [profile.dev]
 opt-level = 1 # 1级优化
 
 [profile.dev.package."*"]
-opt-level = 3 # 3级优化依赖
+opt-level = 3 # 依赖3级优化
 
 [profile.release]
 codegen-units = 1
 debug = false
 lto = "fat"
 opt-level = 3
-# painc = "abort"
-# strip = "symbols"
+panic = "abort"
+strip = "symbols"
